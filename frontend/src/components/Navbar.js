@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom';
-import { useLogout } from '../hooks/useLogout'
-import { useAuthContext } from '../hooks/useAuthContext'
+import { Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
-const Navbar = () => {  
-  const { logout } = useLogout()
-  const { user } = useAuthContext()
+const Navbar = () => {
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
 
   const handleClick = () => {
-    logout()
-  }
+    logout();
+  };
 
   return (
     <header>
@@ -20,6 +20,7 @@ const Navbar = () => {
           {user && (
             <div>
               <span className="user-email">{user.email}</span>
+              <Link to="/nutrition-intake">Nutrition Intake</Link> {/* New Link */}
               <button onClick={handleClick}>Log out</button>
             </div>
           )}
@@ -36,3 +37,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
