@@ -10,7 +10,7 @@ const RecipeForm = () => {
     const [ingredients, setIngredients] = useState('')
     const [instructions, setInstructions] = useState('')
     const [preparationTime, setPreparationTime] = useState('')
-    const [difficultyLevel, setDifficultyLevel] = useStet('')
+    const [difficultyLevel, setDifficultyLevel] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
 
@@ -26,7 +26,7 @@ const RecipeForm = () => {
 
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/recipe`,  {
             method: 'POST', 
-            body:JSON.stringify(workout),
+            body:JSON.stringify(recipe),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}`
