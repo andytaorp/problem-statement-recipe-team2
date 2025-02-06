@@ -20,7 +20,7 @@ const Navbar = () => {
           {user && (
             <div>
               <span className="user-email">{user.email}</span>
-              <Link to="/nutrient-intake">Nutrient Intake</Link>
+              <Link to="/nutrition-intake">Nutrition Intake</Link> {/* New Link */}
               <button onClick={handleClick}>Log out</button>
             </div>
           )}
@@ -37,4 +37,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
