@@ -7,6 +7,8 @@ import Home from './pages/Home.js'
 import Navbar from './components/Navbar.js'
 import Login from './pages/Login.js';
 import Signup from './pages/Signup.js';
+import "./index.css";
+
 
 function App() {
 const {user} = useAuthContext()
