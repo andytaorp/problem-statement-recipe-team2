@@ -9,7 +9,7 @@ const RecipeForm = () => {
     const [recipeName, setRecipeName] = useState('')
     const [ingredients, setIngredients] = useState('')
     const [instructions, setInstructions] = useState('')
-    const [preparationTime, setPreparationTime] = useState('')
+    const [prepTime, setPrepTime] = useState('')
     const [difficultyLevel, setDifficultyLevel] = useState('')
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
@@ -22,7 +22,7 @@ const RecipeForm = () => {
             return
         }
 
-        const recipe = {recipeName, ingredients, instructions, preparationTime, difficultyLevel}
+        const recipe = {recipeName, ingredients, instructions, prepTime, difficultyLevel}
 
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/recipe`,  {
             method: 'POST', 
@@ -42,7 +42,7 @@ const RecipeForm = () => {
             setRecipeName('')
             setIngredients('')
             setInstructions('')
-            setPreparationTime('')
+            setPrepTime('')
             setDifficultyLevel('')
             setError(null)
             setEmptyFields([])
@@ -82,9 +82,9 @@ return(
         <label>Preparation time:</label>
         <input 
             type = "text" 
-            onChange= {(e) => setPreparationTime(e.target.value)}
-            value={preparationTime}
-            className={emptyFields.includes('preparationTime') ? 'error': ''}
+            onChange= {(e) => setPrepTime(e.target.value)}
+            value={prepTime}
+            className={emptyFields.includes('prepTime') ? 'error': ''}
             />
 
         <label>Difficulty level:</label>
