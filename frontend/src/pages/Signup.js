@@ -1,16 +1,16 @@
 import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";  
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const Signup = () => {
   const { user, signup } = useAuthContext();
-  const history = useHistory();
+  const navigate = useNavigate();  
 
   useEffect(() => {
     if (user) {
-      history.push("/");
+      navigate("/");  
     }
-  }, [user, history]);
+  }, [user, navigate]);
 
   return (
     <div className="signup">

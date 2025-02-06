@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useRecipesContext } from '../hooks/useRecipesContext';
+import { useRecipeContext } from '../hooks/useRecipeContext';
 import { useAuthContext } from '../hooks/useAuthContext';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const RecipeDetails = ({ recipe }) => {
-    const { dispatch } = useRecipesContext();
+    const { dispatch } = useRecipeContext();
     const { user } = useAuthContext();
     
     const [isEditing, setIsEditing] = useState(false);
@@ -151,7 +150,6 @@ const RecipeDetails = ({ recipe }) => {
                     <p><strong>Instructions:</strong> {recipe.instructions}</p>
                     <p><strong>Preparation Time:</strong> {recipe.preparationTime} minutes</p>
                     <p><strong>Difficulty:</strong> {recipe.difficulty}</p>
-                    <p>{formatDistanceToNow(new Date(recipe.createdAt), { addSuffix: true })}</p>
 
                     <span className="material-symbols-outlined delete-button" onClick={handleDelete}>
                         delete

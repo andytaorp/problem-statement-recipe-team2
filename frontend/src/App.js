@@ -6,7 +6,7 @@ import Home from "./pages/Home.js";
 import Navbar from "./components/Navbar.js";
 import Login from "./pages/Login.js";
 import Signup from "./pages/Signup.js";
-import NutritionIntake from "./pages/NutritionIntake.js"; // Import Nutrition Intake page
+import NutrientIntake from "./pages/NutrientIntake.js"; // ✅ Fixed import name
 import "./index.css";
 
 function App() {
@@ -18,22 +18,17 @@ function App() {
         <Navbar />
         <div className="pages">
           <Routes>
-            <Route
-              path="/"
-              element={user ? <Home /> : <Navigate to="/login" />}
-            />
-            <Route
-              path="/login"
-              element={!user ? <Login /> : <Navigate to="/" />}
-            />
-            <Route
-              path="/signup"
-              element={!user ? <Signup /> : <Navigate to="/" />}
-            />
-            <Route
-              path="/nutrition-intake"
-              element={user ? <NutritionIntake /> : <Navigate to="/login" />}
-            />
+            {/* Home - Redirect to login if not authenticated */}
+            <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+            
+            {/* Login - Redirect to home if already authenticated */}
+            <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+            
+            {/* Signup - Redirect to home if already authenticated */}
+            <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" />} />
+            
+            {/* Nutrient Intake - Redirect to login if not authenticated */}
+            <Route path="/nutrient-intake" element={user ? <NutrientIntake /> : <Navigate to="/login" />} />
           </Routes>
         </div>
       </BrowserRouter>
@@ -42,4 +37,3 @@ function App() {
 }
 
 export default App;
-
